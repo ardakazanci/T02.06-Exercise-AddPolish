@@ -53,6 +53,9 @@ public class MainActivity extends AppCompatActivity {
      * that URL in a TextView, and finally fires off an AsyncTask to perform the GET request using
      * our (not yet created) {@link GithubQueryTask}
      */
+
+    // Bu metot github adresi için sorgu oluşturmamızı sağlayan URL ' yi oluşturuyor.
+
     private void makeGithubSearchQuery() {
         String githubQuery = mSearchBoxEditText.getText().toString();
         URL githubSearchUrl = NetworkUtils.buildUrl(githubQuery);

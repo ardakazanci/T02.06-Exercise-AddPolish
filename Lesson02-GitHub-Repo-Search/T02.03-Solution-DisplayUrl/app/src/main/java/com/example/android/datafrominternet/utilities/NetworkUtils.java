@@ -49,9 +49,9 @@ public class NetworkUtils {
      */
     public static URL buildUrl(String githubSearchQuery) {
         // COMPLETED (1) Fill in this method to build the proper Github query URL
-        Uri builtUri = Uri.parse(GITHUB_BASE_URL).buildUpon()
-                .appendQueryParameter(PARAM_QUERY, githubSearchQuery)
-                .appendQueryParameter(PARAM_SORT, sortBy)
+        Uri builtUri = Uri.parse(GITHUB_BASE_URL).buildUpon() // Github adresi üzerine inşa et anlamı taşıyor.
+                .appendQueryParameter(PARAM_QUERY, githubSearchQuery) // Parametre sorgusu
+                .appendQueryParameter(PARAM_SORT, sortBy) // Çeşit sorgusu
                 .build();
 
         URL url = null;
