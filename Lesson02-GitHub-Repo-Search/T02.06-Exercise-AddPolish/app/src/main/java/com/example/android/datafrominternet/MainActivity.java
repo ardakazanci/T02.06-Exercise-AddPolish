@@ -21,6 +21,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.example.android.datafrominternet.utilities.NetworkUtils;
@@ -36,9 +37,17 @@ public class MainActivity extends AppCompatActivity {
 
     private TextView mSearchResultsTextView;
 
-    // TODO (12) Create a variable to store a reference to the error message TextView
+    // COMPLETED (12) Create a variable to store a reference to the error message TextView
 
-    // TODO (24) Create a ProgressBar variable to store a reference to the ProgressBar
+    private TextView errorMessageTextView;
+
+
+    // COMPLETED (24) Create a ProgressBar variable to store a reference to the ProgressBar
+
+    private ProgressBar loadingPageProgressBar;
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
