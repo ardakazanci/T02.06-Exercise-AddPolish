@@ -20,6 +20,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -47,8 +48,6 @@ public class MainActivity extends AppCompatActivity {
     private ProgressBar loadingPageProgressBar;
 
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,7 +69,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
     /**
      * This method retrieves the search text from the EditText, constructs the
      * URL (using {@link NetworkUtils}) for the github repository you'd like to find, displays
@@ -84,25 +82,35 @@ public class MainActivity extends AppCompatActivity {
         new GithubQueryTask().execute(githubSearchUrl);
     }
 
-    // TODO (14) Create a method called showJsonDataView to show the data and hide the error
+    // COMPLETED (14) Create a method called showJsonDataView to show the data and hide the error
+    // İçeriği göster metodu
+    public void showJsonDataView() {
 
-    public void showJsonDataView(){
-
+        errorMessageTextView.setVisibility(View.INVISIBLE);
+        mSearchResultsTextView.setVisibility(View.VISIBLE);
 
     }
 
-    // TODO (15) Create a method called showErrorMessage to show the error and hide the data
+    // COMPLETED (15) Create a method called showErrorMessage to show the error and hide the data
+    // Hata mesajını göster metodu
 
+    public void showErrorMessage() {
 
-    public void showErrorMessage(){
-
-        
+        errorMessageTextView.setVisibility(View.VISIBLE);
+        mSearchResultsTextView.setVisibility(View.INVISIBLE);
 
     }
 
     public class GithubQueryTask extends AsyncTask<URL, Void, String> {
 
-        // TODO (26) Override onPreExecute to set the loading indicator to visible
+        // COMPLETED (26) Override onPreExecute to set the loading indicator to visible
+
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            loadingPageProgressBar.setVisibility(View.VISIBLE); // İşlem başladığında gözükecek
+        }
 
         @Override
         protected String doInBackground(URL... params) {
@@ -118,12 +126,21 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(String githubSearchResults) {
-            // TODO (27) As soon as the loading is complete, hide the loading indicator
+            // COMPLETED (27) As soon as the loading is complete, hide the loading indicator
+
+            loadingPageProgressBar.setVisibility(View.INVISIBLE);
+
             if (githubSearchResults != null && !githubSearchResults.equals("")) {
-                // TODO (17) Call showJsonDataView if we have valid, non-null results
+                // COMPLETED (17) Call showJsonDataView if we have valid, non-null results
+
+                showJsonDataView(); // İşlem başarılı olursa JSON Data verileri gelecek
                 mSearchResultsTextView.setText(githubSearchResults);
+            } else {
+
+                showErrorMessage(); // İşlem başarısız olursa hata mesajını göster metodu çağırılacak
+
             }
-            // TODO (16) Call showErrorMessage if the result is null in onPostExecute
+            // COMPLETED (16) Call showErrorMessage if the result is null in onPostExecute
         }
     }
 
