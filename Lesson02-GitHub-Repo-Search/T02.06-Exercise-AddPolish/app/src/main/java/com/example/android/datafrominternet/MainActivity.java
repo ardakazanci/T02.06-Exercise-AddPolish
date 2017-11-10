@@ -59,10 +59,17 @@ public class MainActivity extends AppCompatActivity {
         mUrlDisplayTextView = (TextView) findViewById(R.id.tv_url_display);
         mSearchResultsTextView = (TextView) findViewById(R.id.tv_github_search_results_json);
 
-        // TODO (13) Get a reference to the error TextView using findViewById
+        // COMPLETED (13) Get a reference to the error TextView using findViewById
 
-        // TODO (25) Get a reference to the ProgressBar using findViewById
+        errorMessageTextView = (TextView) findViewById(R.id.tv_error_message_display);
+
+
+        // COMPLETED (25) Get a reference to the ProgressBar using findViewById
+
+        loadingPageProgressBar = (ProgressBar) findViewById(R.id.pb_loading_indicator);
     }
+
+
 
     /**
      * This method retrieves the search text from the EditText, constructs the
