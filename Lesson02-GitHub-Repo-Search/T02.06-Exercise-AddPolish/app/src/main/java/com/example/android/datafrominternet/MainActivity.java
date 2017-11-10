@@ -86,7 +86,19 @@ public class MainActivity extends AppCompatActivity {
 
     // TODO (14) Create a method called showJsonDataView to show the data and hide the error
 
+    public void showJsonDataView(){
+
+
+    }
+
     // TODO (15) Create a method called showErrorMessage to show the error and hide the data
+
+
+    public void showErrorMessage(){
+
+        
+
+    }
 
     public class GithubQueryTask extends AsyncTask<URL, Void, String> {
 
