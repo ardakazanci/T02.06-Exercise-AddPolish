@@ -84,9 +84,8 @@ public class MainActivity extends AppCompatActivity {
      * similar to what I've done above. You can view a list of implicit Intents on the Common
      * Intents page from the developer documentation.
      *
-     * @see <http://developer.android.com/guide/components/intents-common.html/>
-     *
      * @param v Button that was clicked.
+     * @see <http://developer.android.com/guide/components/intents-common.html/>
      */
     public void createYourOwn(View v) {
         Toast.makeText(this,
@@ -126,7 +125,7 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * This method will fire off an implicit Intent to view a location on a map.
-     *
+     * <p>
      * When constructing implicit Intents, you can use either the setData method or specify the
      * URI as the second parameter of the Intent's constructor,
      * as I do in {@link #openWebPage(String)}
@@ -151,6 +150,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     // COMPLETED (1) Create a void method called shareText that accepts a String as a parameter
+
     /**
      * This method shares text and allows the user to select which app they would like to use to
      * share the text. Using ShareCompat's IntentBuilder, we get some really cool functionality for
